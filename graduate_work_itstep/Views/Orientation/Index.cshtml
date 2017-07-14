@@ -1,0 +1,19 @@
+﻿@model IEnumerable<graduate_work_itstep.Models.Tests.OrientationQuestion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@foreach (var question in Model) {
+        <div class="panel panel-default">
+            <div class="panel-heading">@question.Body @question.Id </div>
+            @foreach (var answer in ViewBag.answers) {
+                <div class="panel-body">@answer.Body</div>
+            }
+            <div class="panel-footer">Panel Footer</div>
+        </div>
+}
+
