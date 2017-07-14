@@ -5,15 +5,24 @@
 }
 
 <h2>Index</h2>
-
-
-@foreach (var question in Model) {
-        <div class="panel panel-default">
-            <div class="panel-heading">@question.Body @question.Id </div>
-            @foreach (var answer in ViewBag.answers) {
-                <div class="panel-body">@answer.Body</div>
-            }
-            <div class="panel-footer">Panel Footer</div>
-        </div>
-}
+    @{int i = 0; }
+    <form method="post" action="/Tests/Orientation/result">
+        @foreach (var question in Model) {
+            <div class="panel panel-default">
+                <div class="panel-heading">@question.Body</div>
+                
+                @foreach (var answer in question.Answers)
+                {
+                    
+                    <div class="panel-body">
+                        <label class="radio-inline"><input type="radio" name="positive[@i]" value="@answer.Attribute">Підходить</label>
+                        @answer.Body
+                        <label class="radio-inline"><input type="radio" name="negative[@i]" value="@answer.Attribute">Не підходить</label>
+                    </div>
+                }
+            </div>
+            ++i;
+        }
+        <button type="submit">Виконано</button>
+    </form>
 
