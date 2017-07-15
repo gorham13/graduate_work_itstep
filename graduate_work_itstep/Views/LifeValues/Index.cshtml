@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@{ int j = 0;}
+<form method="post" action="/Tests/LifeValues/result">
+    <div class="panel panel-default">
+        <div class="panel-heading">Тест на життєві цінності</div>
+            @foreach (var question in ViewBag.questions)
+            {
+                for (int i = 0; i < 6; ++i)
+                {
+                    <div class="panel-body">
+                        <label for="sel1">@question.Body:</label>
+                        <select class="form-control" id="sel1" name="answers[j]">
+                            @foreach (var answer in ViewBag.answers)
+                            {
+                                <option value="@answer.Id">@answer.Body</option>
+                            }
+                        </select> <br />
+                        @{++j;}
+                    </div>
+                }
+            }
+        </div>
+    <button type="submit">Виконано</button>
+</form>
+

@@ -17,6 +17,8 @@ namespace graduate_work_itstep.Controllers.Tests
         public ActionResult Index()
         {
             var questions = db.OrientationQuestions.Include(q => q.Answers);
+            if (questions == null)
+                return HttpNotFound();
             return View(questions.ToList());
         }
 
@@ -59,12 +61,18 @@ namespace graduate_work_itstep.Controllers.Tests
             return RedirectToAction("result", "Orientation", new { i = i, work = work, friends = friend });
         }
         [HttpGet]
-        public string result(int i, int work, int friends)
+        public ActionResult result(int i, int work, int friends)
         {
-            ViewBag.i = i;
-            ViewBag.work = work;
-            ViewBag.friends = friends;
-            return "work="+work+" i="+i+" friend="+friends;
+            string message;
+            if ((i > work) && (i > friends))
+                message = "Направленность на себя (Я)  – ориентация на прямое вознаграждение и удовлетворение безотносительно работы и сотрудников, агрессивность в достижении статуса, властность, склонность к соперничеству, раздражительность, тревожность, интровертированность. ";
+            else if ((work > i) && (work > friends))
+                message = "Направленность на дело (Д) – заинтересованность в решении деловых проблем, выполнение работы как можно лучше, ориентация на деловое сотрудничество, способность отстаивать в интересах дела собственное мнение, которое полезно для достижения общей цели. ";
+            else
+                message = "Направленность на общение (О) – стремление при любых условиях поддерживать отношения с людьми, ориентация на совместную деятельность, но часто в ущерб выполнению конкретных заданий или оказанию искренней помощи людям, ориентация на социальное одобрение, зависимость от группы, потребность в привязанности и эмоциональных отношениях с людьми. ";
+
+            ViewBag.message = message+"/n"+" i="+i + " work=" + work + " friends=" + friends;
+            return View();
         }
     }
 }
