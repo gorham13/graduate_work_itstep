@@ -14,7 +14,7 @@ namespace graduate_work_itstep
     {
         protected void Application_Start()
         {
-            //Database.SetInitializer(new TestDbInitializer());
+            Database.SetInitializer(new TestDbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

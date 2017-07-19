@@ -159,6 +159,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Tests\LifeValuesController.cs" />
     <Compile Include="Controllers\Tests\OrientationController.cs" />
+    <Compile Include="Controllers\Tests\StrengthsController.cs" />
     <Compile Include="Controllers\Tests\TemperamentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -170,6 +171,7 @@
     <Compile Include="Models\Tests\LifeValuesAnswer.cs" />
     <Compile Include="Models\Tests\OrientationAnswer.cs" />
     <Compile Include="Models\Tests\OrientationQuestion.cs" />
+    <Compile Include="Models\Tests\StrengthTest.cs" />
     <Compile Include="Models\Tests\Temperament.cs" />
     <Compile Include="Models\Tests\TemperamentQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,9 +230,11 @@
     <Content Include="Views\Orientation\result.cshtml" />
     <Content Include="Views\LifeValues\Index.cshtml" />
     <Content Include="Views\Temperament\Index.cshtml" />
+    <Content Include="Views\Strengths\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
