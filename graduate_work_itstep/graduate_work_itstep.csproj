@@ -159,12 +159,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Tests\LifeValuesController.cs" />
     <Compile Include="Controllers\Tests\OrientationController.cs" />
+    <Compile Include="Controllers\Tests\TemperamentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707190944297_InitialCreate.cs" />
-    <Compile Include="Migrations\201707190944297_InitialCreate.Designer.cs">
-      <DependentUpon>201707190944297_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\TestContext.cs" />
@@ -173,6 +170,8 @@
     <Compile Include="Models\Tests\LifeValuesAnswer.cs" />
     <Compile Include="Models\Tests\OrientationAnswer.cs" />
     <Compile Include="Models\Tests\OrientationQuestion.cs" />
+    <Compile Include="Models\Tests\Temperament.cs" />
+    <Compile Include="Models\Tests\TemperamentQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +227,7 @@
     <Content Include="Views\Orientation\Index.cshtml" />
     <Content Include="Views\Orientation\result.cshtml" />
     <Content Include="Views\LifeValues\Index.cshtml" />
+    <Content Include="Views\Temperament\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -236,11 +236,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707190944297_InitialCreate.resx">
-      <DependentUpon>201707190944297_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<graduate_work_itstep.Models.Tests.TemperamentQuestion>
+
+@{
+    ViewBag.Title = "Index";
+    int i = 0;
+}
+
+<h2>Index</h2>
+
+<form method="post" action="/Tests/Temperament/result">
+    <div class="panel panel-default">
+        <div class="panel-heading">Тест на визначення темпераменту</div>
+
+        @*<div class="checkbox"><label><input type="checkbox" name="answers[0]" value="3">Lalka</label></div>
+        <div class="checkbox"><label><input type="checkbox" name="answers[1]" value="2">Lalka1</label></div>*@
+
+        @foreach (var item in Model)
+        {
+            <div class="panel-body">
+                <div class="checkbox"><label><input type="checkbox" name="answers" value="@item.Temperament.Id">@item.Body</label></div>
+            </div>
+            ++i;
+        }
+    </div>
+    <button type="submit">Виконано</button>
+</form>

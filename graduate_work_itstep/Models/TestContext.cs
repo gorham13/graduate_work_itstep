@@ -14,6 +14,9 @@ namespace graduate_work_itstep.Models
         public DbSet<LifeValuesQuestion> LifeValuesQuestions { get; set; }
         public DbSet<OrientationQuestion> OrientationQuestions { get; set; }
         public DbSet<OrientationAnswer> OrientationAnswers { get; set; }
+        public DbSet<Temperament> Temperaments { get; set; }
+        public DbSet<TemperamentQuestion> TemperamentQuestions { get; set; }
+
 
     }
 
@@ -61,6 +64,36 @@ namespace graduate_work_itstep.Models
             db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 2, QuestionId = 3, Description = "Я не можу терпіти спати" });
             db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 3, QuestionId = 3, Description = "Я не можу терпіти грошей" });
             db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 4, QuestionId = 3, Description = "Я не можу терпіти морозива" });
+
+
+            var h = db.Temperaments.Add(new Temperament { Name = "Холерик" });
+            var f = db.Temperaments.Add(new Temperament { Name = "Флегматик" });
+            var m = db.Temperaments.Add(new Temperament { Name = "Меланхолік" });
+            var s = db.Temperaments.Add(new Temperament { Name = "Санглвінік" });
+
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я суетлив и неусидчив.", Temperament = h});
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я несдержан и вспыльчив.", Temperament = h });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я нетерпелив.", Temperament = h });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я резок и прямолинеен в общении.", Temperament = h });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я часто являюсь инициатором всевозможных мероприятий.", Temperament = h });
+
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я – жизнерадостный человек.", Temperament = s });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я энергичен и всегда знаю, куда направить свою энергию.", Temperament = s });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я не всегда довожу до конца то, что начал.", Temperament = s });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я часто себя переоцениваю.", Temperament = s });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Все новое я схватываю буквально на лету.", Temperament = s });
+
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Обычно я спокоен и хладнокровен.", Temperament = f });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Во всех своих делах я придерживаюсь определенной последовательности.", Temperament = f });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Обычно я рассудителен и осторожен.", Temperament = f });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я спокойно переношу ожидание.", Temperament = f });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Если мне нечего сказать, я предпочитаю молчать.", Temperament = f });
+
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я застенчив и стеснителен.", Temperament = m });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "В незнакомой обстановке я чувствую себя растерянным.", Temperament = m });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Мне трудно заговорить с незнакомым человеком.", Temperament = m });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Порой я не верю в свои силы.", Temperament = m });
+            db.TemperamentQuestions.Add(new TemperamentQuestion { Body = "Я спокойно переношу одиночество.", Temperament = m });
 
 
 
