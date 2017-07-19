@@ -17,6 +17,7 @@ namespace graduate_work_itstep.Models
 
     }
 
+
     public class TestDbInitializer : DropCreateDatabaseAlways<TestContext>
     {
         protected override void Seed(TestContext db)
@@ -45,6 +46,23 @@ namespace graduate_work_itstep.Models
             db.LifeValuesQuestions.Add(new LifeValuesQuestion { Body = "Я неодмінно повинен" });
             db.LifeValuesQuestions.Add(new LifeValuesQuestion { Body = "Жахливо якщо" });
             db.LifeValuesQuestions.Add(new LifeValuesQuestion { Body = "Я не можу терпіти" });
+
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 1, QuestionId = 1, Description = "Я неодмінно повинен їсти" });
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 2, QuestionId = 1, Description = "Я неодмінно повинен спати" });
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 3, QuestionId = 1, Description = "Я неодмінно повинен грошей" });
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 4, QuestionId = 1, Description = "Я неодмінно повинен морозива" });
+
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 1, QuestionId = 2, Description = "Жахливо якщо їсти" });
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 2, QuestionId = 2, Description = "Жахливо якщо спати" });
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 3, QuestionId = 2, Description = "Жахливо якщо грошей" });
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 4, QuestionId = 2, Description = "Жахливо якщо морозива" });
+
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 1, QuestionId = 3, Description = "Я не можу терпіти їсти" });
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 2, QuestionId = 3, Description = "Я не можу терпіти спати" });
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 3, QuestionId = 3, Description = "Я не можу терпіти грошей" });
+            db.LifeValuesKeys.Add(new LifeValuesKey { AnswerId = 4, QuestionId = 3, Description = "Я не можу терпіти морозива" });
+
+
 
             base.Seed(db);
         }

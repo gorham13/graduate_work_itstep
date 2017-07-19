@@ -25,7 +25,6 @@ namespace graduate_work_itstep.Controllers.Tests
         [HttpPost]
         public RedirectToRouteResult result(string[] positive, string[] negative)
         {
-            string str = "";
             int i = 0;
             int work = 0;
             int friend = 0;

@@ -5,14 +5,16 @@
 @{ int j = 0;}
 <form method="post" action="/Tests/LifeValues/result">
     <div class="panel panel-default">
-        <div class="panel-heading">Тест на життєві цінності</div>
+        <div class="panel-heading">Тест на життєві цінності</div> 
+    
             @foreach (var question in ViewBag.questions)
-            {
-                for (int i = 0; i < 6; ++i)
-                {
+                        {
+                            for (int i = 0; i < 6; ++i)
+                            {
                     <div class="panel-body">
                         <label for="sel1">@question.Body:</label>
-                        <select class="form-control" id="sel1" name="answers[j]">
+                        <input hidden name="questions[@j]" value="@question.Id" />
+                        <select class="form-control" id="answers[@j]" name="answers[@j]">
                             @foreach (var answer in ViewBag.answers)
                             {
                                 <option value="@answer.Id">@answer.Body</option>

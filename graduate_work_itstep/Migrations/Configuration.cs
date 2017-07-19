@@ -9,7 +9,7 @@ namespace graduate_work_itstep.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(graduate_work_itstep.Models.TestContext context)

@@ -22,13 +22,22 @@ namespace graduate_work_itstep.Controllers.Tests
             return View();
         }
         [HttpPost]
-        public ActionResult result(int answers)
+        public ActionResult result(int[] answers, int[] questions)
         {
-            string s = answers.ToString();
-            //for (int i = 0; i < answers.Length; ++i)
-            //    s += answers[i] + " ";
+            string testKeys = "";
+            for (int i = 0; i < answers.Length; ++i)
+            {
+                int answer = answers[i];
+                int question = questions[i];
+                var Keys = db.LifeValuesKeys
+                    .Where(k => k.AnswerId == answer)
+                    .FirstOrDefault(k => k.QuestionId == question);
+                if (Keys != null)
+                    testKeys += Keys.Description.ToString() + "<br>";
+            }
+                
 
-            return Content(s);
+            return Content(testKeys);
         }
     }
 }
