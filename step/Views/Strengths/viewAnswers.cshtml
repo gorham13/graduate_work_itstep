@@ -1,0 +1,29 @@
+﻿@model IEnumerable<step.Models.Tests.StrengthTest>
+
+@{
+    ViewBag.Title = "view";
+}
+
+<h2>View keys</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<div class="container">
+    <h2>Keys</h2>
+    <hr />
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-lg-10">
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
+            <div class="col-lg-2">
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+        <hr />
+    }
+
+</div>

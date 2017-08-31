@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "add";
+}
+
+<form method="post" action="/Orientation/add">
+    @Html.AntiForgeryToken()
+    <h4>Add Orientation Question</h4>
+    <hr />
+
+    <div class="form-group">
+        <label for="question_body" class="control-label col-md-2">Question</label>
+        <div class="col-md-10">
+            <textarea class="form-control" name="question_body"></textarea>
+        </div>
+    </div>
+    @for(int i = 0; i < 3; ++i)
+    {
+        <div class="form-group">
+            <label for="answers[@i].Body" class="control-label col-md-2">Answer</label>
+            <div class="col-md-10">
+                <textarea class="form-control" name="answers[@i].Body" id="answers[@i].Body"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="answers[@i].Attribute" class="control-label col-md-2">Answer atribute</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="answers[@i].Attribute" id="answers[@i].Attribute"/>
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

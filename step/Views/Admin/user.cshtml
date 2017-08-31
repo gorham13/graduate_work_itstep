@@ -1,0 +1,27 @@
+﻿@model step.Models.ApplicationUser
+@{
+    ViewBag.Title = "user";
+}
+
+<h2>user</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @Html.DisplayNameFor(model => model.StrengthsResult)
+    </div>
+    <div class="panel-body">
+        @Html.DisplayFor(model => model.StrengthsResult)
+    </div>
+    <div class="panel-heading">
+        @Html.DisplayNameFor(model => model.TemperamrntResult)
+    </div>
+    <div class="panel-body">
+        @Html.DisplayFor(model => model.TemperamrntResult)
+    </div>
+    <div class="panel-heading">
+        @Html.DisplayNameFor(model => model.OrientationResult)
+    </div>
+    <div class="panel-body">
+        @Html.DisplayFor(model => model.OrientationResult)
+    </div>
+</div>

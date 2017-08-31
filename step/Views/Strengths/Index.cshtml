@@ -1,0 +1,32 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@{int i = 0;}
+<form method="post" action="/Strengths/result">
+    <div class="panel panel-default">
+        <div class="panel-heading">Оберіть номер картинки яка вам найбільше подобається</div>
+        <div class="panel-body" align="center">
+            <img src="~/images/StrengthTest.png" alt="Sample Image" />
+
+            <select class="form-control" id="answer" name="answer">
+                @foreach (var key in ViewBag.keys)
+                {
+                    ++i;
+                    <option value="@key.Id">@i</option>
+                }
+            </select> <br />
+        </div>
+        @if (User.IsInRole("admin"))
+        {
+            <div class="panel-footer">
+                <a href="/strengths/viewAnswers" class="btn btn-success">View keys</a>
+            </div>
+        }
+    </div>
+    <button type="submit">Виконано</button>
+</form>
+

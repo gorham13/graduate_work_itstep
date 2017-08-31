@@ -1,0 +1,45 @@
+﻿@model step.Models.Tests.OrientationQuestion
+
+@{
+    ViewBag.Title = "edit";
+}
+@{int i = 0; }
+<form method="post" action="/Orientation/edit">
+    @Html.AntiForgeryToken()
+    <h4>Edit Orientation Question</h4>
+    <hr />
+    <input type="hidden" name="question_id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label for="question_body" class="control-label col-md-2">Question</label>
+        <div class="col-md-10">
+            <textarea class="form-control" name="question_body">@Model.Body</textarea>
+        </div>
+    </div>
+    @foreach (var answer in Model.Answers)
+    {
+        <input type="hidden" name="answers[@i].Id" value="@answer.Id" />
+        <div class="form-group">
+            <label for="answer_body" class="control-label col-md-2">Answer</label>
+            <div class="col-md-10">
+                <textarea class="form-control" name="answers[@i].Body">@answer.Body</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="answer_body" class="control-label col-md-2">Answer atribute</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="answers[@i].Attribute" value="@answer.Attribute"/>
+            </div>
+        </div>
+        ++i;
+    }
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

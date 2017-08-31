@@ -1,0 +1,30 @@
+﻿@model step.Models.Tests.StrengthTest
+
+@{
+    ViewBag.Title = "edit";
+}
+@{int i = 0; }
+<form method="post" action="/Strengths/edit">
+    @Html.AntiForgeryToken()
+    <h4>Edit Strength Question</h4>
+    <hr />
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="container">
+        <div class="form-group">
+            <label for="description" class="control-label col-md-2">Description</label>
+            <div class="col-md-10">
+                <textarea class="form-control" name="description">@Model.Description</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

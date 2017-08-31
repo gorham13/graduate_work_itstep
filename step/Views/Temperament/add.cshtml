@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "add";
+}
+
+<form method="post" action="/Temperament/add">
+    @Html.AntiForgeryToken()
+    <h4>Add Temperament Question</h4>
+    <hr />
+
+    <div class="form-group">
+        <label for="question_body" class="control-label col-md-2">Question</label>
+        <div class="col-md-10">
+            <textarea class="form-control" name="question_body"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="temperament_id" class="control-label col-md-2">Question</label>
+        <div class="col-md-10">
+            <select class="form-control" name="temperament_id">
+                @foreach (var temperament in ViewBag.Temperaments)
+                {
+                    <option value="@temperament.Id">@temperament.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

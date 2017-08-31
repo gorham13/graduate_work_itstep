@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "add";
+}
+
+
+@model step.Models.Tests.StrengthTest
+
+<form method="post" action="/strengths/add">
+    @Html.AntiForgeryToken()
+    <h4>Add Strangth Question</h4>
+    <hr />
+
+    <div class="form-group">
+        <label for="description" class="control-label col-md-2">Description</label>
+        <div class="col-md-10">
+            <textarea class="form-control" name="description"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

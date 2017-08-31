@@ -1,0 +1,52 @@
+﻿@model IEnumerable<step.Models.Tests.OrientationQuestion>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-lg-6">
+        <h2>Index</h2>
+    </div>
+    @if (User.IsInRole("admin"))
+    {
+        <div class="col-lg-6">
+            <br /><a href="/orientation/add" class="btn btn-primary pull-right">Add new question</a>
+        </div>
+    }
+</div>
+@{int i = 0; }
+<form method="post" action="/Orientation/result">
+    @foreach (var question in Model) {
+        <div class="panel panel-default">
+            <div class="panel-heading">@question.Body</div>
+                
+            @foreach (var answer in question.Answers)
+            {
+                    
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label for="positive" class="radio-inline"><input type="radio" id="positive" name="positive[@i]" value="@answer.Attribute">Підходить</label>
+                        </div>
+                        <div class="col-lg-8">
+                            @answer.Body
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="negative" class="radio-inline"><input type="radio" id="negative" name="negative[@i]" value="@answer.Attribute">Не підходить</label>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (User.IsInRole("admin"))
+            {
+                <div class="panel-footer">
+                    <a href="/orientation/edit/@question.Id" class="btn btn-success">Edit</a>
+                    <a href="/orientation/delete/@question.Id" class="btn btn-danger">Delete</a>
+                </div>
+            }
+        </div>
+        ++i;
+    }
+    <button type="submit">Виконано</button>
+</form>
+

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<step.Models.Tests.TemperamentQuestion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form method="post" action="/Temperament/result">
+    <div class="panel panel-default">
+        <div class="panel-heading">Тест на визначення темпераменту</div>
+        <div class="panel-body">
+            @if (User.IsInRole("admin"))
+            {
+                <a href="/temperament/add" class="btn btn-success">Add new question</a>
+            }
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="panel-body">
+                <div class="checkbox"><label><input type="checkbox" name="answers" value="@item.Temperament.Id">@item.Body</label></div>
+                @if (User.IsInRole("admin"))
+                {
+                    <a href="/temperament/edit/@item.Id" class="btn btn-success">Edit</a>
+                    <a href="/temperament/delete/@item.Id" class="btn btn-danger">Delete</a>
+                }
+            </div>
+        }
+    </div>
+    <button type="submit">Виконано</button>
+</form>
